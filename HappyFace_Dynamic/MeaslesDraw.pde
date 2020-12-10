@@ -1,4 +1,3 @@
-
 void draw() {
   measlesX = random(width);
   measlesY = random(height);

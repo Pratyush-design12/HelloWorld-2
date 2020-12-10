@@ -1,4 +1,3 @@
-
 //Global Variables
 int reset;
 int rectFaceX, rectFaceY, rectFaceWidth, rectFaceHeight;
@@ -12,6 +11,7 @@ float mouthX1, mouthY1, mouthX2, mouthY2, mouthThick;
 color red = #FF0303;
 color measlesColor = red;
 float measlesX, measlesY, measlesDiameter;
+int pg;
 
 void setup() {
   fullScreen();
@@ -26,6 +26,9 @@ void setup() {
   //
   ellipse(leftEyeX, leftEyeY, leftEyeDiameter, leftEyeDiameter);
   ellipse(rightEyeX, rightEyeY, rightEyeDiameter, rightEyeDiameter);
+  // pupils
+  ellipse(75, 85, 10, 10);
+  ellipse(125, 85, 10, 10);
   //
   //ellipse(circleNoseX, circleNoseY, circleNoseWidth, circleNoseHeight); //true ellipse
   triangle(noseX1, noseY1, noseX2, noseY2, noseX3, noseY3);
