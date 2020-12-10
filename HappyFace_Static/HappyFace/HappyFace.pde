@@ -1,65 +1,49 @@
-//Global Variables
-//float shortSide;
-float faceSquareX, faceSquareY, faceSquareSide;
-float faceX, faceY, faceDiameter,leftEyeX, leftEyeY, eyeDiameter, rightEyeX, rightEyeY, noseX1, noseY1, noseX2, noseY2, noseX3, noseY3, mouthX1, mouthY1, mouthX2, mouthY2, measlesX, measlesY, measlesDiameter, a, b, c, d, start, stop;
-float shortSide;
-float mouthThick;
+int reset;
+int faceX, faceY, faceDiameter;
+int leftEyeX, leftEyeY, leftEyeDiameter;
+int rightEyeX, rightEyeY, rightEyeDiameter;
+int noseX1, noseY1, noseX2, noseY2, noseX3, noseY3;
+float mouthX1, mouthY1, mouthX2, mouthY2, mouthThick;
+color red = #FF0303;
+color measlesColor = red;
+float measlesX, measlesY, measlesDiameter;
 //
-//Display Geometry
-fullScreen(); //displayWidth  displayHeight; //General Geomtery: landscape, portrait, or square
-if (width > height) shortSide = height; //Shorter Side
-//println(shortSide);
-//Populating Variables
-faceSquareX = width*1/2-height*1/2;
-faceSquareY = height*0;
-faceSquareSide = height; //Shorter side
-faceX = width*.5;
-faceY = height*.5;
-faceDiameter = height*.75;
-leftEyeX = width*.375;
-leftEyeY = height*.425;
-eyeDiameter = height*.15;
-rightEyeX = width*0.425;
-rightEyeY = height*.425;
-eyeDiameter = height*.15;
-noseX1 = width;
-noseY1 = height;
-noseX2 = width;
-noseY2 = height;
-noseX3 = width;
-noseY3 = height;
-mouthX1 = width*.3;
-mouthY1 = height*.625;
-mouthX2 = width*.7;
-mouthY2 = height*.625;
-a = width*.5;
-b =height*.625;
-c =width*.5;
-d =height*.625;
-start = width*.25;
-stop = height*3.14;
-measlesX = width;
-measlesY = height;
-measlesDiameter = height;
-//Variable shortSide
+size (600, 400);
 //
-//The Face
+faceX = width/2;
+faceY = height/2;
+faceDiameter = height;
+leftEyeX = width*3/8;
+leftEyeY = height*1/4;
+leftEyeDiameter = height/7;
+rightEyeX = width*5/8;
+rightEyeY = leftEyeY;
+rightEyeDiameter = leftEyeDiameter;
+noseX1 = width/2;
+noseY1 = height*2/5;
+noseX2 = width*7/16;
+noseY2 = height*6/10;
+noseX3 = width*9/16;
+noseY3 = noseY2;
+mouthX1 = leftEyeX;
+mouthY1 = height*3/4;
+mouthX2 = rightEyeX;
+mouthY2 = mouthY1;
+mouthThick = 15;
+reset = 1;
 //
-//Face
-rect(faceSquareX, faceSquareY, faceSquareSide, faceSquareSide);
 ellipse(faceX, faceY, faceDiameter, faceDiameter);
-//Left Eye
-ellipse(leftEyeX, leftEyeY, eyeDiameter, eyeDiameter);
-//Right Eye
-ellipse(rightEyeX, rightEyeY, eyeDiameter, eyeDiameter);
-//Nose
+ellipse(leftEyeX, leftEyeY, leftEyeDiameter, leftEyeDiameter);
+ellipse(rightEyeX, rightEyeY, rightEyeDiameter, rightEyeDiameter);
 triangle(noseX1, noseY1, noseX2, noseY2, noseX3, noseY3);
-//Mouth
-//strokeCap(); //Default ROUND
-//strokeWeight(mouthThick);
+strokeWeight(mouthThick);
 line(mouthX1, mouthY1, mouthX2, mouthY2);
-arc(a, b, c, d, start, stop);
+strokeWeight(reset);
 //
-//The Measles
+measlesX = random(width);
+measlesY = random(height);
+measlesDiameter = random(height*1/20, height*1/10);
+fill(measlesColor);
+//Parameters are randomly set ;)
 ellipse(measlesX, measlesY, measlesDiameter, measlesDiameter);
-//
+fill(reset);
