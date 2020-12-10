@@ -14,7 +14,7 @@ color measlesColor = red;
 float measlesX, measlesY, measlesDiameter;
 
 void setup() {
-  size (600, 400);
+  fullScreen();
   //Portrait Geometry, height is smaller thus dimension of face (circle)
   //
   //Variable Population
@@ -34,19 +34,3 @@ void setup() {
   line(mouthX1, mouthY1, mouthX2, mouthY2);
   strokeWeight(reset);
 } //End setup()
-
-void draw() {
-  measlesX = random(width);
-  measlesY = random(height);
-  measlesDiameter = random(height*1/20, height*1/10);
-  fill(measlesColor);
-  //Parameters are randomly set ;)
-  ellipse(measlesX, measlesY, measlesDiameter, measlesDiameter);
-  fill(reset);
-} //End draw()
-
-void keyPressed() {
-} //End keyPressed()
-
-void mousePressed() {
-} //End mousePressed()
