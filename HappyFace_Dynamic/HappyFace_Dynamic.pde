@@ -3,6 +3,8 @@ int reset;
 int rectFaceX, rectFaceY, rectFaceWidth, rectFaceHeight;
 int circleNoseX, circleNoseY, circleNoseWidth, circleNoseHeight;
 //
+int pupilsX1, pupilsY1, pupilsDiameter1;
+int pupilsx2, pupilsY2, pupilsDiameter2;
 int faceX, faceY, faceDiameter, faceRadius;
 int leftEyeX, leftEyeY, leftEyeDiameter;
 int rightEyeX, rightEyeY, rightEyeDiameter;
@@ -27,8 +29,9 @@ void setup() {
   ellipse(leftEyeX, leftEyeY, leftEyeDiameter, leftEyeDiameter);
   ellipse(rightEyeX, rightEyeY, rightEyeDiameter, rightEyeDiameter);
   // pupils
-  ellipse(75, 85, 10, 10);
-  ellipse(125, 85, 10, 10);
+  ellipse(pupilsX1, pupilsY1, pupilsDiameter1, pupilsDiameter1);
+  ellipse(pupilsx2, pupilsY2, pupilsDiameter2, pupilsDiameter2);
+  fill(0);
   //
   //ellipse(circleNoseX, circleNoseY, circleNoseWidth, circleNoseHeight); //true ellipse
   triangle(noseX1, noseY1, noseX2, noseY2, noseX3, noseY3);

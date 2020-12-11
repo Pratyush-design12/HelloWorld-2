@@ -13,8 +13,15 @@ void populatingVariables() {
   leftEyeY = height*1/4;
   leftEyeDiameter = height/7;
   rightEyeX = width*5/8;
-  rightEyeY = leftEyeY;
-  rightEyeDiameter = leftEyeDiameter;
+  rightEyeY = height*leftEyeY;
+  rightEyeDiameter = height*leftEyeDiameter;
+  pupilsX1 = width*3/8;
+  pupilsY1 = height*1/4;
+  pupilsDiameter1 = height/7;
+  pupilsx2 = width*5/8;
+  pupilsY2 = height*leftEyeY;
+  pupilsDiameter2 = height*leftEyeDiameter;
+ 
   //
   circleNoseX = width/2;
   circleNoseY = height/2;
