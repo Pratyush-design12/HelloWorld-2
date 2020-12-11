@@ -1,42 +1,71 @@
 //Global Variables
-int reset;
-int rectFaceX, rectFaceY, rectFaceWidth, rectFaceHeight;
-int circleNoseX, circleNoseY, circleNoseWidth, circleNoseHeight;
-//
-int pupilsX1, pupilsY1, pupilsDiameter1;
-int pupilsx2, pupilsY2, pupilsDiameter2;
-int faceX, faceY, faceDiameter, faceRadius;
-int leftEyeX, leftEyeY, leftEyeDiameter;
-int rightEyeX, rightEyeY, rightEyeDiameter;
-int noseX1, noseY1, noseX2, noseY2, noseX3, noseY3;
-float mouthX1, mouthY1, mouthX2, mouthY2, mouthThick;
-color red = #FF0303;
-color measlesColor = red;
-float measlesX, measlesY, measlesDiameter;
-int pg;
+int shortSide, reset;
+float faceSquareX, faceSquareY, faceSquareSide, mouthX1, mouthY1, mouthX2, mouthY2, measlesX, measlesY, measlesDiameter;
+float faceX, faceY, faceDiameter, leftEyeX, leftEyeY, eyeDiameter, rightEyeX, rightEyeY, leftPupilX, leftPupilY, pupilDiameter, rightPupilX, rightPupilY;
+int mouthThick, measlesColor, noseX1, noseY1, noseX2, noseY2, noseX3, noseY3;
+color red = #FA0004;
+color white = #FFFFFF;
+color green = #6FE084;
 
-void setup() {
-  fullScreen();
-  //Portrait Geometry, height is smaller thus dimension of face (circle)
-  //
-  //Variable Population
-  populatingVariables();
-  //
-  //Initial Visual Data, etc. (i.e. Face)
-  rect(rectFaceX, rectFaceY, rectFaceWidth, rectFaceHeight);
+
+
+
+//Populating Variables
+void setup() {   
+  if (width > height) shortSide = height;
+//Display
+    fullScreen();
+  faceSquareX = width*1/2-height*1/2;
+  faceSquareY = height*0;
+  faceSquareSide = height; //Shorter side
+  faceX = width*1/2;
+  faceY = height*1/2;
+  faceDiameter = height; //Variable shortSide
+  leftEyeX = width*1/2.5;
+  leftEyeY = height*1/4;
+  eyeDiameter = height*1/7;
+  rightEyeX = width*7/12;
+  rightEyeY = height*1/4;
+  leftPupilX = width*1/2.5;
+  leftPupilY = height*1/4;
+  pupilDiameter = height*1/20;
+  rightPupilX = width*7/12;
+  rightPupilY = height*1/4;
+  noseX1 = width/2;
+  noseY1 = height*2/5;
+  noseX2 = width*7/16;
+  noseY2 = height*3/5;
+  noseX3 = width*9/16;
+  noseY3 = noseY2;
+  mouthX1 = leftEyeX;
+  mouthY1 = height*9/12;
+  mouthX2 = rightEyeX;
+  mouthY2 = mouthY1;
+  reset = 1;
+  measlesColor = color(#FA0004);
+  rect(faceSquareX, faceSquareY, faceSquareSide, faceSquareSide);
   ellipse(faceX, faceY, faceDiameter, faceDiameter);
-  //
-  ellipse(leftEyeX, leftEyeY, leftEyeDiameter, leftEyeDiameter);
-  ellipse(rightEyeX, rightEyeY, rightEyeDiameter, rightEyeDiameter);
-  // pupils
-  ellipse(pupilsX1, pupilsY1, pupilsDiameter1, pupilsDiameter1);
-  ellipse(pupilsx2, pupilsY2, pupilsDiameter2, pupilsDiameter2);
-  fill(0);
-  //
-  //ellipse(circleNoseX, circleNoseY, circleNoseWidth, circleNoseHeight); //true ellipse
+}
+
+void draw() 
+{ 
+  strokeWeight(1);
+  fill(measlesColor);
+  ellipse(measlesX, measlesY, measlesDiameter, measlesDiameter);
+  measlesDiameter = random(height*1/20, height*1/16);
+  measlesX = random(faceSquareX+measlesDiameter, faceSquareX+faceSquareSide-measlesDiameter);
+  measlesY = random(height);
+  fill(green);
+  //ellipse(leftPupilX, leftPupilY, pupilDiameter);
+  //ellipse(rightPupilX, rightPupilY, pupilDiameter);
+  fill(green);
+  ellipse(leftEyeX, leftEyeY, eyeDiameter, eyeDiameter);
+  //Right Eye
+  ellipse(rightEyeX, rightEyeY, eyeDiameter, eyeDiameter);
+ strokeWeight(2);
   triangle(noseX1, noseY1, noseX2, noseY2, noseX3, noseY3);
-  //
-  strokeWeight(mouthThick);
+  
+  strokeWeight(30);
+  strokeCap(ROUND) ; //Default ROUND
   line(mouthX1, mouthY1, mouthX2, mouthY2);
-  strokeWeight(reset);
-} //End setup()
+}
