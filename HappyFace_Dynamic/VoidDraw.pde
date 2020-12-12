@@ -1,6 +1,12 @@
 void draw() 
 { 
+  strokeWeight(8);
+  textSize(17);
+  String s = "HappyFace with Measles";
+  fill(80);
+  text(s, 14*36, 30, 90, 110);  // Text wraps within text box
   strokeWeight(1);
+  shapeMode(CENTER);
   fill(measlesColor);
   ellipse(measlesX, measlesY, measlesDiameter, measlesDiameter);
   measlesDiameter = random(height*1/20, height*1/16);
@@ -19,7 +25,7 @@ void draw()
   triangle(noseX1, noseY1, noseX2, noseY2, noseX3, noseY3);
   
   strokeWeight(30);
+  mouthColor = color(yellow);
   strokeCap(ROUND) ; //Default ROUND
-  arc(a, b, c, d, start, stop);
   line(mouthX1, mouthY1, mouthX2, mouthY2);
 }

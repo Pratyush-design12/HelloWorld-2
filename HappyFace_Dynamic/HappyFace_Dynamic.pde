@@ -1,12 +1,13 @@
 //Global Variables
 int shortSide, reset;
-float faceSquareX, faceSquareY, faceSquareSide, authX1, mouthY1, mouthX2, mouthY2, measlesX, measlesY, measlesDiameter;
+float faceSquareX, faceSquareY, faceSquareSide, mouthX1, mouthY1, mouthX2, mouthY2, measlesX, measlesY, measlesDiameter;
 float faceX, faceY, faceDiameter, leftEyeX, leftEyeY, eyeDiameter, rightEyeX, rightEyeY, leftPupilX, leftPupilY, pupilDiameter, rightPupilX, rightPupilY;
-int mouthThick, measlesColor, noseX1, noseY1, noseX2, noseY2, noseX3, noseY3;
+int mouthThick, measlesColor, mouthColor, noseX1, noseY1, noseX2, noseY2, noseX3, noseY3;
 color red = #FA0004;
 color white = #FFFFFF;
 color green = #6FE084;
 color black = 0;
+color yellow = #FFE200;
    //Populating Variables
 void setup() {   
   if (width > height) shortSide = height;
@@ -34,12 +35,6 @@ void setup() {
   noseY2 = height*3/5;
   noseX3 = width*9/16;
   noseY3 = noseY2;
-  a = 100;
-  b = 125;
-  c = 80;
-  d = 50;
-  start = 0;
-  stop = 3.14;
   mouthX1 = leftEyeX;
   mouthY1 = height*9/12;
   mouthX2 = rightEyeX;
