@@ -1,16 +1,13 @@
 //Global Variables
 int shortSide, reset;
-float faceSquareX, faceSquareY, faceSquareSide, mouthX1, mouthY1, mouthX2, mouthY2, measlesX, measlesY, measlesDiameter;
+float faceSquareX, faceSquareY, faceSquareSide, authX1, mouthY1, mouthX2, mouthY2, measlesX, measlesY, measlesDiameter;
 float faceX, faceY, faceDiameter, leftEyeX, leftEyeY, eyeDiameter, rightEyeX, rightEyeY, leftPupilX, leftPupilY, pupilDiameter, rightPupilX, rightPupilY;
 int mouthThick, measlesColor, noseX1, noseY1, noseX2, noseY2, noseX3, noseY3;
 color red = #FA0004;
 color white = #FFFFFF;
 color green = #6FE084;
-
-
-
-
-//Populating Variables
+color black = 0;
+   //Populating Variables
 void setup() {   
   if (width > height) shortSide = height;
 //Display
@@ -37,6 +34,12 @@ void setup() {
   noseY2 = height*3/5;
   noseX3 = width*9/16;
   noseY3 = noseY2;
+  a = 100;
+  b = 125;
+  c = 80;
+  d = 50;
+  start = 0;
+  stop = 3.14;
   mouthX1 = leftEyeX;
   mouthY1 = height*9/12;
   mouthX2 = rightEyeX;
@@ -45,27 +48,4 @@ void setup() {
   measlesColor = color(#FA0004);
   rect(faceSquareX, faceSquareY, faceSquareSide, faceSquareSide);
   ellipse(faceX, faceY, faceDiameter, faceDiameter);
-}
-
-void draw() 
-{ 
-  strokeWeight(1);
-  fill(measlesColor);
-  ellipse(measlesX, measlesY, measlesDiameter, measlesDiameter);
-  measlesDiameter = random(height*1/20, height*1/16);
-  measlesX = random(faceSquareX+measlesDiameter, faceSquareX+faceSquareSide-measlesDiameter);
-  measlesY = random(height);
-  fill(green);
-  //ellipse(leftPupilX, leftPupilY, pupilDiameter);
-  //ellipse(rightPupilX, rightPupilY, pupilDiameter);
-  fill(green);
-  ellipse(leftEyeX, leftEyeY, eyeDiameter, eyeDiameter);
-  //Right Eye
-  ellipse(rightEyeX, rightEyeY, eyeDiameter, eyeDiameter);
- strokeWeight(2);
-  triangle(noseX1, noseY1, noseX2, noseY2, noseX3, noseY3);
-  
-  strokeWeight(30);
-  strokeCap(ROUND) ; //Default ROUND
-  line(mouthX1, mouthY1, mouthX2, mouthY2);
 }
