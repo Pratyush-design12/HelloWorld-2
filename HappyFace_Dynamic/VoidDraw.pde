@@ -20,10 +20,11 @@ void draw()
    //Pupils
   ellipse(leftPupilX, leftPupilY, pupilDiameter, pupilDiameter);
   ellipse(rightPupilX, rightPupilY, pupilDiameter,pupilDiameter );
+  //Nose
   fill(white);
  strokeWeight(2);
   triangle(noseX1, noseY1, noseX2, noseY2, noseX3, noseY3);
-  
+  //Mouth
   strokeWeight(30);
   mouthColor = color(yellow);
   strokeCap(ROUND) ; //Default ROUND
