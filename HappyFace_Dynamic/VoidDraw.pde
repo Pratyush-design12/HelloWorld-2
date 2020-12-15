@@ -1,17 +1,12 @@
 void draw() 
 { 
-  strokeWeight(8);
-  textSize(17);
-  String s = "HappyFace with Measles";
-  fill(80);
-  text(s, 14*36, 30, 90, 110);  // Text wraps within text box
   strokeWeight(1);
   shapeMode(CENTER);
   fill(measlesColor);
   ellipse(measlesX, measlesY, measlesDiameter, measlesDiameter);
-  measlesDiameter = random(height*1/20, height*1/16);
-  measlesX = random(faceSquareX+measlesDiameter, faceSquareX+faceSquareSide-measlesDiameter);
-  measlesY = random(height);
+  measlesDiameter = random(height*1/18, height*1/16);
+  measlesX = random(faceSquareX+height*1/7.5, faceSquareX+faceSquareSide-height*1/7.5);
+  measlesY = random(height*0+height*1/7.5, height-height*1/7.5);
   fill(green);
   ellipse(leftEyeX, leftEyeY, eyeDiameter, eyeDiameter);
   //Right Eye
@@ -29,4 +24,18 @@ void draw()
   mouthColor = color(yellow);
   strokeCap(ROUND) ; //Default ROUND
   line(mouthX1, mouthY1, mouthX2, mouthY2);
+  strokeWeight(2.3);
+  if ( mouseX>buttonX && mouseX<buttonX+buttonWidth && mouseY>buttonY && mouseY<buttonY+buttonHeight ) { 
+    buttonColour = red;
+  } else { 
+    buttonColour = resetWhite;
+    
+  } 
+  fill(buttonColour);
+  rect(buttonX, buttonY, buttonWidth, buttonHeight);
+  fill(resetWhite);
 }
+
+void mousePressed() {
+  if ( mouseX>buttonX && mouseX<buttonX+buttonWidth && mouseY>buttonY && mouseY<buttonY+buttonHeight ) exit() ;
+}//End mousePressed()
